@@ -45,6 +45,9 @@ function getCouponDiscount(){
         console.log(typeof grandTotalPrice)
         document.getElementById('grand-total').innerText = grandTotalPrice;
     }
+    else{
+        alert('Invalid coupon code');
+    }
 }
 
 // MODAL HOME CLICK 
