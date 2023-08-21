@@ -29,6 +29,18 @@ function handleCardClick (data){
         const couponBtn = document.getElementById('coupon-btn');
         couponBtn.removeAttribute('disabled');
     }
+
+    const discount = total / 100 * 20;
+    const discountPriceString = discount.toFixed(2);
+    const discountPrice = parseFloat(discountPriceString);
+    const getCouponCode = document.getElementById('coupon-code').value;
+    if(getCouponCode === 'SELL200'){
+        const discountElement = document.getElementById('total-discount').innerText = discountPriceString;
+        const grandTotal = total - discountPrice;
+        const grandTotalPriceString = parseFloat(grandTotal);
+        const grandTotalPrice = grandTotalPriceString.toFixed(2);
+        document.getElementById('grand-total').innerText = grandTotalPrice;
+    }
 }
 
 // APPLY CLICKS 
@@ -42,12 +54,12 @@ function getCouponDiscount(){
         const grandTotal = total - discountPrice;
         const grandTotalPriceString = parseFloat(grandTotal);
         const grandTotalPrice = grandTotalPriceString.toFixed(2);
-        console.log(typeof grandTotalPrice)
         document.getElementById('grand-total').innerText = grandTotalPrice;
     }
     else{
         alert('Invalid coupon code');
     }
+    dis = discountPrice;
 }
 
 // MODAL HOME CLICK 
